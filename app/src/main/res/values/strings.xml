@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dayone_convertor</string>
+    <string name="app_name">DayOne.Convertor</string>
     <string name="convert_text">CONVERT</string>
     <string name="dollars">dollars</string>
     <string name="no_value">No value</string>
