@@ -11,11 +11,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    
     public static final String TAG = "stateChange";
+    private static final String RUBLE_VALUE = "rubValues";
+
+    TextView rubValues;
+    
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        rubValues = findViewById(R.id.rubValues);
+        
         Log.i(TAG, "onCreate()");
     }
 
@@ -35,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        rubValues.setText(savedInstanceState.getString(RUBLE_VALUE));
         Log.i(TAG, "onRestoreInstanceState()");
     }
 
@@ -47,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString(RUBLE_VALUE, rubValues.getText().toString());
         Log.i(TAG, "onSaveInstanceState()");
     }
 
@@ -69,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void convert(View view) {
+        
         EditText dollarValues = findViewById(R.id.dollarValues);
-        TextView rubValues = findViewById(R.id.rubValues);
 
         if (dollarValues.getText().toString().equals("")) {
             rubValues.setText(R.string.no_value);
