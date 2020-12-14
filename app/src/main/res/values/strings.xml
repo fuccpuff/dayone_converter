@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">dayone_convertor</string>
+    <string name="convert_text">CONVERT</string>
+    <string name="dollars">dollars</string>
 </resources>
